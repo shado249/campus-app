@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Campus – Try the App</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF3FC;--ink:#10224F;--muted:#5B6B8C;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1630;--ink:#E8EEFF;--muted:#9AA9CC}}
+:root[data-theme="dark"]{--bg:#0C1630;--ink:#E8EEFF;--muted:#9AA9CC}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito',system-ui,sans-serif;padding:18px 12px 30px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.hint{font-size:13px;color:var(--muted);text-align:center;max-width:340px;margin:0}
+.replay{border:0;background:#FFC93C;color:#10224F;font:800 13px 'Nunito',sans-serif;padding:9px 16px;border-radius:12px;cursor:pointer}
+.phone{width:340px;max-width:100%;height:680px;border-radius:38px;background:#fff;border:8px solid #10224F;overflow:hidden;position:relative;direction:ltr;text-align:left;color:#10224F;box-shadow:0 14px 34px rgba(16,34,79,.25)}
+.sb{height:22px;background:#1E4FD8}
+#scr{height:calc(100% - 22px);position:relative}
+.sc{height:100%;overflow-y:auto}
+.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.splash{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:12px}
+.logo{width:92px;height:92px;border-radius:26px;background:#1E4FD8;display:grid;place-items:center;position:relative;color:#fff}
+.logo .i{width:50px;height:50px}
+.logo:after{content:"";position:absolute;right:-6px;bottom:-6px;width:26px;height:26px;border-radius:50%;background:#FFC93C;border:4px solid #fff}
+.splash h2{margin:8px 0 0;font-size:26px;color:#1E4FD8;font-weight:800}
+.splash p{margin:0;font-size:13px;color:#6B7A99}
+.spin{margin-top:40px;width:38px;height:38px;border-radius:50%;border:4px solid #DCE6FB;border-top-color:#1E4FD8;animation:r 1s linear infinite}
+@keyframes r{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spin{animation-duration:3s}}
+.top{background:#1E4FD8;color:#fff;padding:22px 22px 34px;border-radius:0 0 34px 34px;position:relative;margin-bottom:4px}
+.top:after{content:"";position:absolute;left:24px;bottom:-3px;width:54px;height:6px;border-radius:3px;background:#FFC93C}
+.top h3{margin:0 0 4px;font-size:25px;font-weight:800}
+.top p{margin:0;font-size:13px;opacity:.85}
+.mini{width:36px;height:36px;border-radius:11px;background:rgba(255,255,255,.16);display:grid;place-items:center;margin-bottom:14px}
+.body{padding:20px 20px 24px;display:flex;flex-direction:column;gap:11px}
+.f{display:flex;align-items:center;gap:10px;background:#F3F6FD;border:1.5px solid #E1E8F7;border-radius:14px;padding:0 14px;height:50px;color:#6B7A99}
+.f:focus-within{border-color:#1E4FD8;background:#fff;color:#1E4FD8}
+.f input,.f textarea{border:0;outline:0;background:transparent;flex:1;font:14px 'Nunito',sans-serif;color:#10224F;min-width:0}
+.f.t{height:auto;padding:12px 14px;align-items:flex-start}
+.f textarea{resize:none;height:60px}
+.btn{height:50px;border:0;border-radius:14px;background:#1E4FD8;color:#fff;font:800 15px 'Nunito',sans-serif;cursor:pointer;margin-top:4px}
+button:focus-visible,summary:focus-visible,.lnk:focus-visible{outline:3px solid #FFC93C;outline-offset:2px}
+.alt{text-align:center;font-size:13px;color:#6B7A99;margin-top:8px}
+.lnk{color:#1E4FD8;font-weight:800;margin-left:6px;border:0;border-bottom:3px solid #FFC93C;background:none;font:800 13px 'Nunito',sans-serif;cursor:pointer;padding:0}
+.forgot{align-self:flex-end;font-size:12px;color:#1E4FD8;font-weight:700}
+.err{color:#C62828;font-size:13px;min-height:0}
+.card{display:flex;align-items:center;gap:12px;background:#F3F6FD;border:1px solid #E1E8F7;border-radius:18px;padding:12px;text-decoration:none;color:inherit}
+.ic{width:42px;height:42px;border-radius:13px;background:#1E4FD8;color:#fff;display:grid;place-items:center;flex:none}
+.card h4{margin:0 0 2px;font-size:14px;font-weight:800}
+.card p{margin:0;font-size:11.5px;color:#6B7A99;line-height:1.35}
+.card>.i{color:#1E4FD8;width:18px;height:18px}
+.nav{position:absolute;left:0;right:0;bottom:0;height:62px;background:#fff;border-top:1px solid #E1E8F7;display:flex;justify-content:space-around;align-items:center}
+.nav button{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:2px;font:600 10.5px 'Nunito',sans-serif;color:#6B7A99;cursor:pointer;padding:0 4px}
+.nav .i{width:22px;height:22px}
+.nav .on{color:#1E4FD8;font-weight:800}
+.nav .on .i{background:#1E4FD8;color:#fff;border-radius:12px;padding:3px 11px;width:48px;height:28px}
+.fab{position:absolute;right:16px;bottom:76px;background:#FFC93C;color:#10224F;border:0;border-radius:16px;padding:13px 16px;font:800 14px 'Nunito',sans-serif;display:flex;gap:8px;align-items:center;box-shadow:0 4px 10px rgba(0,0,0,.2);cursor:pointer}
+.small{background:#1E4FD8;color:#fff;border-radius:12px;padding:8px 12px;font-size:12px;font-weight:700;display:inline-flex;gap:6px;align-items:center;margin-top:10px;text-decoration:none}
+.small .i{width:14px;height:14px}
+.avatar{width:84px;height:84px;border-radius:50%;background:#1E4FD8;border:4px solid #FFC93C;color:#fff;font-size:34px;font-weight:800;display:grid;place-items:center;margin:22px auto 10px}
+.prow{display:flex;align-items:center;gap:14px;background:#F3F6FD;border:1px solid #E1E8F7;border-radius:16px;padding:12px 14px;font:700 15px 'Nunito',sans-serif;color:#10224F;cursor:pointer;width:100%;text-align:left}
+.prow .ic{background:#E8EFFD;color:#1E4FD8;width:38px;height:38px;border-radius:11px}
+.prow span{flex:1}
+.prow>.i{color:#6B7A99}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:14px 20px 4px}
+.chip{border:1.5px solid #E1E8F7;background:#F3F6FD;color:#10224F;border-radius:20px;padding:7px 14px;font:700 12.5px 'Nunito',sans-serif;white-space:nowrap;cursor:pointer}
+.chip.on{background:#1E4FD8;border-color:#1E4FD8;color:#fff}
+details{background:#F3F6FD;border:1px solid #E1E8F7;border-radius:16px;padding:12px 14px}
+summary{font-weight:800;font-size:14px;cursor:pointer;list-style:none;display:flex;gap:10px;align-items:flex-start}
+summary::-webkit-details-marker{display:none}
+summary b{background:#FFC93C;color:#10224F;border-radius:8px;min-width:24px;height:24px;display:grid;place-items:center;font-size:12px}
+details p{margin:10px 0 0 34px;font-size:13px;line-height:1.5;color:#35466F}
+.ov{position:absolute;inset:0;background:rgba(16,34,79,.5);display:flex;align-items:center;justify-content:center;padding:18px;z-index:5}
+.dlg{background:#fff;border-radius:22px;padding:18px;width:100%;display:flex;flex-direction:column;gap:10px}
+.dlg h3{margin:0;font-size:18px;font-weight:800}
+.dr{display:flex;justify-content:flex-end;gap:8px}
+.tx{border:0;background:none;font:700 14px 'Nunito',sans-serif;color:#1E4FD8;cursor:pointer;padding:8px}
+.toast{position:absolute;left:16px;right:16px;bottom:74px;background:#10224F;color:#fff;border-radius:12px;padding:10px 14px;font-size:13px;text-align:center;z-index:6}
+@media (max-width:420px){.phone{border-width:0;border-radius:0;height:calc(100vh - 110px)}}
+</style>
+</head>
+<body>
+<p class="hint">جرّب التطبيق زي ما هو: اضغط على الأزرار واكتب في الخانات. الحسابات والمشاريع هنا مؤقتة وبتتمسح لما تعمل Replay.</p>
+<div class="phone"><div class="sb"></div><div id="scr"></div></div>
+<button class="replay" id="rp">↻ Replay from Splash</button>
+
+<script>
+const P={school:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/>',work:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2"/>',play:'<circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/>',code:'<path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/>',person:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>',mail:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 8l9 6 9-6"/>',lock:'<rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 018 0v3"/>',set:'<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/>',share:'<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 11l7.6-4M8.2 13l7.6 4"/>',out:'<path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/>',open:'<path d="M14 4h6v6M20 4l-9 9M18 14v5H5V6h5"/>',chev:'<path d="M9 6l6 6-6 6"/>',plus:'<path d="M12 5v14M5 12h14"/>',chat:'<path d="M4 5h16v11H9l-5 4z"/>'};
+const I=n=>`<svg class="i" viewBox="0 0 24 24">${P[n]}</svg>`;
+const yt=n=>'https://www.youtube.com/results?search_query='+encodeURIComponent(n).replace(/%20/g,'+');
+const TR=[["Digital Egypt Pioneers (DEPI)","Free national scholarship by MCIT: software, AI, data, cybersecurity.","https://www.depi.gov.eg"],["Digital Pioneers (Digilians)","Presidential initiative with the Egyptian Military Academy.","https://www.digilians.gov.eg"],["ITI – Information Technology Institute","Intensive professional training programs and summer tracks.","https://iti.gov.eg"],["NTI – National Telecommunication Institute","Telecom, networks and IT training courses.","https://www.nti.sci.eg"],["Ministry of Communications (MCIT)","Official announcements for digital training initiatives.","https://mcit.gov.eg"]];
+const CH=[["Elzero Web School","Full Arabic courses: web development and more."],["Codezilla","Coding tutorials and programming fundamentals."],["Abdelrahman Gamal","Programming topics in short, focused videos."],["Dr Ahmed Hagag","University-level CS, AI and math made simple."],["Mohamed Taha Benha computer science","CS course explanations from a Benha FCAI lecturer."],["Amr Ghoneim","Computer science and AI from an academic researcher."],["Adel Nasim","Programming languages and problem solving."],["Omar Ahmed Java Flutter","Java, OOP, clean code and Flutter."]];
+const IQ={"HR":[["Tell me about yourself.","Keep it to one minute: who you are, what you study, one project, and why you are applying."],["Why do you want to join this company or program?","Mention two specific things you researched (their products or curriculum) and link them to your goals."],["What are your strengths and weaknesses?","Pick a real strength with an example, and a weakness you are actively improving."],["Tell me about a time you worked in a team.","Use STAR: Situation, Task, Action, Result. Focus on your own contribution."],["Where do you see yourself in 5 years?","Show growth: deeper technical skills, more responsibility, and continuous learning."]],
+"Programming":[["What are the four pillars of OOP?","Encapsulation, inheritance, polymorphism, abstraction. Prepare one tiny example for each."],["Array vs linked list?","Array: contiguous memory, O(1) access by index, costly inserts. Linked list: nodes with pointers, O(1) insert at head, O(n) access."],["Stack vs queue?","Stack is LIFO (undo, call stack). Queue is FIFO (printer, BFS)."],["What is Big-O notation?","It describes how time or memory grows with input size, e.g. binary search O(log n), linear scan O(n)."],["What is a REST API?","A style for client-server communication over HTTP using resources and verbs (GET, POST, PUT, DELETE), usually with JSON."],["Explain recursion.","A function calling itself with a base case and a smaller subproblem, e.g. factorial."]],
+"Databases":[["Primary key vs foreign key?","A primary key uniquely identifies a row. A foreign key references the primary key of another table."],["What are the types of SQL JOIN?","INNER, LEFT, RIGHT and FULL. Explain which rows each one keeps."],["What is normalization?","Organizing tables to reduce redundancy and anomalies (1NF, 2NF, 3NF)."],["SQL vs NoSQL?","SQL: fixed schema, relations, ACID. NoSQL: flexible schema, easy to scale out (document, key-value)."]],
+"Training":[["Can you commit to the full program schedule?","Be honest about your timetable and show discipline and a plan to manage studies."],["Tell me about a project you built.","Problem, your role, technologies, one challenge, result. Have your GitHub link ready."],["How do you learn a new technology?","Official docs, a small project, courses or YouTube, then ask for feedback."],["Why should we choose you?","Connect skills, attitude and examples. Be confident, concise and not arrogant."],["Do you have any questions for us?","Always ask: team structure, learning path, and what success looks like in the first 3 months."]]};
+const S={users:[],user:null,tab:0,cat:"HR",projects:[],notif:true,dlg:null,toast:""};
+const $=document.getElementById('scr');
+const hdr=(t,s)=>`<div class="top"><div class="mini">${I('school')}</div><h3>${t}</h3><p>${s}</p></div>`;
+const val=id=>document.getElementById(id).value;
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let timer;
+function go(n){S.scr=n;draw();}
+function draw(){
+ const n=S.scr;
+ if(n==='splash'){$.innerHTML=`<div class="splash"><div class="logo">${I('school')}</div><h2>Campus</h2><p>Your university, in your pocket</p><div class="spin" role="status" aria-label="Loading"></div></div>`;
+  clearTimeout(timer);timer=setTimeout(()=>go('signup'),3000);}
+ else if(n==='signup')$.innerHTML=`<div class="sc">${hdr('Create account','Join your campus community')}<div class="body"><label class="f">${I('person')}<input id="n" placeholder="Full name"></label><label class="f">${I('mail')}<input id="e" type="email" placeholder="University email"></label><label class="f">${I('lock')}<input id="p" type="password" placeholder="Password"></label><div class="err" id="er"></div><button class="btn" onclick="up()">Sign up</button><div class="alt">Already have an account?<button class="lnk" onclick="go('signin')">Sign in</button></div></div></div>`;
+ else if(n==='signin')$.innerHTML=`<div class="sc">${hdr('Welcome back','Sign in to continue')}<div class="body"><label class="f">${I('mail')}<input id="e" type="email" placeholder="University email"></label><label class="f">${I('lock')}<input id="p" type="password" placeholder="Password"></label><span class="forgot">Forgot password?</span><div class="err" id="er"></div><button class="btn" onclick="inn()">Sign in</button><div class="alt">New here?<button class="lnk" onclick="go('signup')">Create account</button></div></div></div>`;
+ else home();
+}
+function up(){const n=val('n').trim(),e=val('e').trim().toLowerCase(),p=val('p'),er=document.getElementById('er');
+ if(!n)return er.textContent='Please enter your full name.';
+ if(!/^\S+@\S+\.\S+$/.test(e))return er.textContent='Please enter a valid email.';
+ if(p.length<6)return er.textContent='Password must be at least 6 characters.';
+ if(S.users.find(u=>u.e===e))return er.textContent='This email is already registered. Try signing in.';
+ const u={n,e,p};S.users.push(u);S.user=u;S.tab=0;go('home');}
+function inn(){const e=val('e').trim().toLowerCase(),p=val('p'),er=document.getElementById('er');
+ if(!/^\S+@\S+\.\S+$/.test(e))return er.textContent='Please enter a valid email.';
+ if(!p)return er.textContent='Please enter your password.';
+ const u=S.users.find(u=>u.e===e);
+ if(!u)return er.textContent='No account found. Create one with Sign up first.';
+ if(u.p!==p)return er.textContent='Wrong password. Please try again.';
+ S.user=u;S.tab=0;go('home');}
+function link(i,u,t,d){return `<a class="card" href="${u}" target="_blank" rel="noopener"><div class="ic">${I(i)}</div><div style="flex:1"><h4>${t}</h4><p>${d}</p></div>${I('open')}</a>`;}
+function home(){
+ let c='';
+ if(S.tab===0)c=hdr('Approved Training','Official summer training programs')+`<div class="body" style="padding-top:16px">${TR.map(x=>link('work',x[2],x[0],x[1])).join('')}</div>`;
+ if(S.tab===1)c=hdr('Your Studying','Egyptian YouTube channels for CS students')+`<div class="body" style="padding-top:16px">${CH.map(x=>link('play',yt(x[0]),x[0].split(' Benha')[0].replace(' Java Flutter',''),x[1])).join('')}</div>`;
+ if(S.tab===2)c=hdr('Projects','Share your GitHub work and learn from classmates')+`<div class="body" style="padding-top:16px;padding-bottom:90px">${S.projects.length?S.projects.map(p=>`<div class="card" style="display:block;padding:14px"><h4 style="font-size:16px">${esc(p.t)}</h4><p>by ${esc(p.a)}</p><p style="color:#10224F;font-size:12.5px;margin-top:8px">${esc(p.d)}</p><a class="small" href="${esc(p.u)}" target="_blank" rel="noopener">${I('open')}Open on GitHub</a></div>`).join(''):`<div style="text-align:center;padding:40px 10px;color:#6B7A99"><div style="color:#1E4FD8;display:grid;place-items:center">${I('code').replace('class="i"','class="i" style="width:44px;height:44px"')}</div><b style="color:#10224F;font-size:17px">No projects yet</b><br>Tap Add project to share the first one.</div>`}</div><button class="fab" onclick="S.dlg='add';draw()">${I('plus')}Add project</button>`;
+ if(S.tab===3)c=hdr('Interview Prep','Expected questions for jobs and trainings')+`<div class="chips">${Object.keys(IQ).map(k=>`<button class="chip ${k===S.cat?'on':''}" onclick="S.cat='${k}';draw()">${k}</button>`).join('')}</div><div class="body" style="padding-top:12px;padding-bottom:84px">${IQ[S.cat].map((q,i)=>`<details><summary><b>${i+1}</b>${q[0]}</summary><p>${q[1]}</p></details>`).join('')}</div>`;
+ if(S.tab===4)c=hdr('Profile','Your account')+`<div style="text-align:center"><div class="avatar">${esc(S.user.n[0].toUpperCase())}</div><div style="font-size:20px;font-weight:800">${esc(S.user.n)}</div><div style="font-size:13px;color:#6B7A99">${esc(S.user.e)}</div></div><div class="body" style="padding-top:22px"><button class="prow" onclick="S.dlg='set';draw()"><div class="ic">${I('set')}</div><span>Settings</span>${I('chev')}</button><button class="prow" onclick="toast('The share sheet opens on a real phone')"><div class="ic">${I('share')}</div><span>Share app</span>${I('chev')}</button><button class="prow" onclick="S.user=null;go('signup')"><div class="ic">${I('out')}</div><span>Sign out</span>${I('chev')}</button></div>`;
+ const T=[['work','Training'],['play','Studying'],['code','Projects'],['chat','Interview'],['person','Profile']];
+ let o='';
+ if(S.dlg==='add')o=`<div class="ov"><div class="dlg"><h3>Add your project</h3><label class="f">${I('code')}<input id="pt" placeholder="Project name"></label><label class="f">${I('open')}<input id="pu" placeholder="GitHub link"></label><label class="f t"><textarea id="pd" placeholder="Short description"></textarea></label><div class="err" id="er"></div><div class="dr"><button class="tx" style="color:#6B7A99" onclick="S.dlg=null;draw()">Cancel</button><button class="tx" onclick="addp()">Add project</button></div></div></div>`;
+ if(S.dlg==='set')o=`<div class="ov"><div class="dlg"><h3>Settings</h3><label style="display:flex;justify-content:space-between;align-items:center;font-size:14px">Notifications<input type="checkbox" ${S.notif?'checked':''} onchange="S.notif=this.checked" style="width:20px;height:20px;accent-color:#1E4FD8"></label><span style="font-size:12px;color:#6B7A99">Version 1.0</span><div class="dr"><button class="tx" onclick="S.dlg=null;draw()">Done</button></div></div></div>`;
+ $.innerHTML=`<div class="sc" style="padding-bottom:70px">${c}</div><div class="nav">${T.map((t,i)=>`<button class="${S.tab===i?'on':''}" onclick="S.tab=${i};draw()">${I(t[0])}${t[1]}</button>`).join('')}</div>${o}${S.toast?`<div class="toast">${S.toast}</div>`:''}`;
+}
+function addp(){const t=val('pt').trim(),u=val('pu').trim(),d=val('pd').trim(),er=document.getElementById('er');
+ if(!t)return er.textContent='Please name your project.';
+ if(!u.startsWith('https://github.com/'))return er.textContent='Link must start with https://github.com/';
+ if(!d)return er.textContent='Please add a short description.';
+ S.projects.unshift({t,u,d,a:S.user.n});S.dlg=null;draw();}
+function toast(m){S.toast=m;draw();setTimeout(()=>{S.toast='';if(S.scr==='home')draw();},1800);}
+document.getElementById('rp').onclick=()=>{S.users=[];S.user=null;S.projects=[];S.tab=0;S.dlg=null;go('splash');};
+go('splash');
+</script>
+</body>
+</html>
